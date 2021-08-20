@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LCS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script>
+            function handleSubmit() {
+                var input = $("reqTextArea").val();
+                $.post('/comcast-lcs/comcast/task/lcs', {
+                    input: input,
+                }, function (response) {
+                    $("#response p").innerHTML(response);
+                });
+
+
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Find the Longest Common String</h1>
+        <div>
+            <form action="">
+                <div id="request">
+                    Input:<br>
+                    <textarea id="reqTextArea"></textarea>
+                </div><br>
+                <div id="response">
+                    <p/>
+                </div>
+                <br/><br/>
+                <input type="button" value="Submit" onclick="handleSubmit()"/>
+            </form>
+
+        </div>
+    </body>
+</html>
